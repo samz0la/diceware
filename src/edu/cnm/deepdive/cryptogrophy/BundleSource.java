@@ -11,9 +11,11 @@ public class BundleSource implements WordSource {
   public BundleSource(String basename) {
     ResourceBundle bundle = ResourceBundle.getBundle(basename);
     words = new ArrayList<>(
-        bundle.keySet().stream()
-            .map((k) -> bundle.getString(k))
-            .collect(Collectors.toList())
+        bundle.keySet().stream() // create stream of keys(string)
+            .map((k) -> bundle.getString(k)) //map lets us transform types, returns &stream of strings
+            .filter((s) -> !s.matches("^.*\\W|\\d.*$")) //Filter out words with punctuation or digits
+            .filter((s) -> s.length() > 3)
+            .collect(Collectors.toList()) //collect lets us collect the items into a different kind of structure, returns a list of strings, which we use as the argument to our array list constructor
     );
   }
 
