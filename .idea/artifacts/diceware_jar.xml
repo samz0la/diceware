@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="diceware:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/diceware_jar</output-path>
+    <root id="archive" name="diceware.jar">
+      <element id="module-output" name="diceware" />
+    </root>
+  </artifact>
+</component>
